@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { View, Image } from 'react-native'
-import AppIcon from '../../assets/icons/AppIcon'
+import { View, Text } from 'react-native'
+import { SplashScreen } from 'expo'
 
 const StyledView = styled.View`
 	flex: 1;
@@ -11,9 +11,12 @@ const StyledView = styled.View`
 `
 
 const BootView = () => {
+	useEffect(() => {
+		SplashScreen.preventAutoHide()
+	}, [])
 	return (
 		<StyledView>
-			<AppIcon />
+			<Text>test</Text>
 		</StyledView>
 	)
 }

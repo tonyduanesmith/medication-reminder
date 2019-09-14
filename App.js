@@ -9,6 +9,7 @@ import OnboardingView from './src/views/onboarding/OnboardingView'
 import RemindersView from './src/views/reminders/RemindersView'
 import TodayView from './src/views/today/TodayView'
 import BootView from './src/views/boot/BootView'
+import { Provider as AppProvider } from './src/context/AppContext'
 
 const medicationsFlow = createStackNavigator({
 	Medications: MedicationsView,
@@ -33,5 +34,9 @@ const switchNavigator = createSwitchNavigator({
 const App = createAppContainer(switchNavigator)
 
 export default () => {
-	return <App />
+	return (
+		<AppProvider>
+			<App />
+		</AppProvider>
+	)
 }
