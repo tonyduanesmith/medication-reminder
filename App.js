@@ -10,6 +10,7 @@ import RemindersView from './src/views/reminders/RemindersView'
 import TodayView from './src/views/today/TodayView'
 import BootView from './src/views/boot/BootView'
 import { Provider as AppProvider } from './src/context/AppContext'
+import { setNavigator } from './src/utils/navigationRef'
 
 const medicationsFlow = createStackNavigator({
 	Medications: MedicationsView,
@@ -36,7 +37,11 @@ const App = createAppContainer(switchNavigator)
 export default () => {
 	return (
 		<AppProvider>
-			<App />
+			<App
+				ref={navigator => {
+					setNavigator(navigator)
+				}}
+			/>
 		</AppProvider>
 	)
 }

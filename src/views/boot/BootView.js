@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import { View, Text } from 'react-native'
 import { SplashScreen } from 'expo'
+import { Context as AppContext } from '../../context/AppContext'
 
 const StyledView = styled.View`
 	flex: 1;
@@ -11,14 +12,18 @@ const StyledView = styled.View`
 `
 
 const BootView = () => {
+	const { state: showSplash, checkHasOnboarded } = useContext(AppContext)
+
 	useEffect(() => {
-		SplashScreen.preventAutoHide()
+		if (showSplash) {
+			SplashScreen.preventAutoHide()
+		} else {
+			SplashScreen.hide()
+		}
+		console.log('run')
+		checkHasOnboarded()
 	}, [])
-	return (
-		<StyledView>
-			<Text>test</Text>
-		</StyledView>
-	)
+	return null
 }
 
 export default BootView
