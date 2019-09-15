@@ -27,9 +27,8 @@ const appReducer = (state, { type, payload }) => {
 
 const checkHasOnboarded = dispatch => async () => {
 	//	dev only to clear storage to test onboarding
-	await AsyncStorage.clear()
+	// await AsyncStorage.clear()
 	const hasOnboarded = await AsyncStorage.getItem('hasOnboarded')
-	console.log(hasOnboarded)
 	if (hasOnboarded) {
 		navigate('mainFlow')
 	} else {

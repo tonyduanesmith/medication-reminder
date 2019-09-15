@@ -10,6 +10,7 @@ import RemindersView from './src/views/reminders/RemindersView'
 import TodayView from './src/views/today/TodayView'
 import BootView from './src/views/boot/BootView'
 import { Provider as AppProvider } from './src/context/AppContext'
+import { Provider as MedicationProvider } from './src/context/MedicationContext'
 import { setNavigator } from './src/utils/navigationRef'
 import AssetPreLoader from './src/utils/AssetPreLoader'
 
@@ -23,11 +24,15 @@ const remindersFlow = createStackNavigator({
 	AddReminder: AddReminderView
 })
 
+const todayFlow = createStackNavigator({
+	Today: TodayView
+})
+
 const switchNavigator = createSwitchNavigator({
 	Boot: BootView,
 	Onboarding: OnboardingView,
 	mainFlow: createBottomTabNavigator({
-		Today: TodayView,
+		Today: todayFlow,
 		Medications: medicationsFlow,
 		Reminders: remindersFlow
 	})
@@ -38,13 +43,15 @@ const App = createAppContainer(switchNavigator)
 export default props => {
 	return (
 		<AppProvider>
-			<AssetPreLoader>
-				<App
-					ref={navigator => {
-						setNavigator(navigator)
-					}}
-				/>
-			</AssetPreLoader>
+			<MedicationProvider>
+				<AssetPreLoader>
+					<App
+						ref={navigator => {
+							setNavigator(navigator)
+						}}
+					/>
+				</AssetPreLoader>
+			</MedicationProvider>
 		</AppProvider>
 	)
 }
