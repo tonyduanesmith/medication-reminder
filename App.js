@@ -9,33 +9,65 @@ import OnboardingView from './src/views/onboarding/OnboardingView'
 import RemindersView from './src/views/reminders/RemindersView'
 import TodayView from './src/views/today/TodayView'
 import BootView from './src/views/boot/BootView'
+import AssetPreLoader from './src/utils/AssetPreLoader'
 import { Provider as AppProvider } from './src/context/AppContext'
 import { Provider as MedicationProvider } from './src/context/MedicationContext'
 import { setNavigator } from './src/utils/navigationRef'
-import AssetPreLoader from './src/utils/AssetPreLoader'
+import { AntDesign } from '@expo/vector-icons'
+import PillNavIcon from './src/components/PillNavIcon'
 
 const medicationsFlow = createStackNavigator({
 	Medications: MedicationsView,
 	AddMedication: AddMedicationView
 })
 
+medicationsFlow.navigationOptions = {
+	tabBarIcon: ({ tintColor }) => <PillNavIcon color={tintColor} />
+}
+
 const remindersFlow = createStackNavigator({
 	Reminders: RemindersView,
 	AddReminder: AddReminderView
 })
 
+remindersFlow.navigationOptions = {
+	tabBarIcon: ({ tintColor }) => (
+		<AntDesign name='clockcircleo' size={24} color={tintColor} />
+	)
+}
+
 const todayFlow = createStackNavigator({
 	Today: TodayView
 })
 
+todayFlow.navigationOptions = {
+	tabBarIcon: ({ tintColor }) => (
+		<AntDesign name='calendar' size={24} color={tintColor} />
+	)
+}
+
 const switchNavigator = createSwitchNavigator({
 	Boot: BootView,
 	Onboarding: OnboardingView,
-	mainFlow: createBottomTabNavigator({
-		Today: todayFlow,
-		Medications: medicationsFlow,
-		Reminders: remindersFlow
-	})
+	mainFlow: createBottomTabNavigator(
+		{
+			Today: todayFlow,
+			Medications: medicationsFlow,
+			Reminders: remindersFlow
+		},
+		{
+			tabBarOptions: {
+				activeTintColor: '#029cf5',
+				style: {
+					borderTopWidth: 0
+				},
+				labelStyle: {
+					fontSize: 11,
+					fontFamily: 'sf-pro-rounded-semibold'
+				}
+			}
+		}
+	)
 })
 
 const App = createAppContainer(switchNavigator)
