@@ -26,7 +26,10 @@ const appReducer = (state, { type, payload }) => {
 }
 
 const checkHasOnboarded = dispatch => async () => {
+	//	dev only to clear storage to test onboarding
+	await AsyncStorage.clear()
 	const hasOnboarded = await AsyncStorage.getItem('hasOnboarded')
+	console.log(hasOnboarded)
 	if (hasOnboarded) {
 		navigate('mainFlow')
 	} else {
@@ -38,6 +41,15 @@ const checkHasOnboarded = dispatch => async () => {
 	})
 }
 
+const setHasOnboarded = dispatch => async () => {
+	try {
+		await AsyncStorage.setItem('hasOnboarded', 'true')
+		navigate('mainFlow')
+	} catch (err) {
+		console.log('Error saving data', err)
+	}
+}
+
 const loadFonts = dispatch => async () => {
 	await Font.loadAsync({
 		'sf-pro-rounded-semibold': require('../assets/fonts/SF-Pro-Rounded-Semibold.otf')
@@ -47,14 +59,10 @@ const loadFonts = dispatch => async () => {
 		type: 'LOAD_FONTS',
 		payload: true
 	})
-
-	// await Font.loadAsync({
-	// 	'sf-pro-rounded-semibold': require('../assets/fonts/SF-Pro-Rounded-Semibold.otf')
-	// })
 }
 
 export const { Provider, Context } = createDataContext(
 	appReducer,
-	{ checkHasOnboarded, loadFonts },
+	{ checkHasOnboarded, loadFonts, setHasOnboarded },
 	initialState
 )

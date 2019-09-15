@@ -3,6 +3,7 @@ import { View, Image, Text } from 'react-native'
 import styled from 'styled-components'
 import H1 from './H1'
 import Subtitle1 from './Subtitle1'
+import PropTypes from 'prop-types'
 
 const ViewContainer = styled.View`
 	flex: 1;
@@ -33,6 +34,10 @@ const OnBoardItem = ({ item }) => {
 			</Subtitle1>
 		</ViewContainer>
 	)
+}
+
+OnBoardItem.propTypes = {
+	item: PropTypes.object
 }
 
 export default OnBoardItem

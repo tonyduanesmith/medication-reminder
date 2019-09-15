@@ -24,6 +24,7 @@ const remindersFlow = createStackNavigator({
 })
 
 const switchNavigator = createSwitchNavigator({
+	Boot: BootView,
 	Onboarding: OnboardingView,
 	mainFlow: createBottomTabNavigator({
 		Today: TodayView,
