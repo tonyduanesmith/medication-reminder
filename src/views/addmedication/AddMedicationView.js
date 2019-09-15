@@ -5,6 +5,7 @@ import H1 from '../../components/H1'
 import Input from '../../components/Input'
 import ColourPicker from '../../components/ColourPicker'
 import ColouredPillBottleFullIcon from '../../components/ColouredPillBottleFullIcon'
+import CounterInput from '../../components/CounterInput'
 import colours from '../../constants/colours'
 
 const StyledView = styled.View`
@@ -17,6 +18,15 @@ const AddMedicationView = () => {
 	const [name, setName] = useState('')
 	const [dose, setDose] = useState('')
 	const [colour, setColour] = useState('orange')
+	const [count, setCount] = useState('0')
+
+	const handleCount = newCount => {
+		if (newCount <= 0) {
+			setCount('0')
+		} else {
+			setCount(newCount.toString())
+		}
+	}
 	return (
 		<StyledView>
 			<H1>Add Medication</H1>
@@ -42,6 +52,13 @@ const AddMedicationView = () => {
 				primary={colours[colour][0]}
 				secondary={colours[colour][1]}
 				style={{ marginTop: 50 }}
+			/>
+			<CounterInput
+				value={count}
+				label='Count'
+				handleOnChange={setCount}
+				handleOnAdd={() => handleCount(parseInt(count) + 1)}
+				handleOnMinus={() => handleCount(parseInt(count) - 1)}
 			/>
 		</StyledView>
 	)
