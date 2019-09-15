@@ -51,6 +51,7 @@ const CounterInput = ({
 					}}
 					onChangeText={handleOnChange}
 					value={value}
+					keyboardType='number-pad'
 				/>
 				<Button
 					buttonStyle={{
