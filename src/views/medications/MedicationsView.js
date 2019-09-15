@@ -6,7 +6,7 @@ import { AntDesign } from '@expo/vector-icons'
 import H1 from '../../components/H1'
 import TouchableScale from 'react-native-touchable-scale'
 import colours from '../../constants/colours'
-import PillBottleEmptyIcon from '../../assets/icons/PillBottleEmptyIcon'
+import PillBottleEmptyIcon from '../../components/PillBottleEmptyIcon'
 import { Context as MedicationContext } from '../../context/MedicationContext'
 
 const StyledView = styled.View`
