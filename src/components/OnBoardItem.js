@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Image, Text } from 'react-native'
 import styled from 'styled-components'
-import H1 from './H1'
+import H2 from './H2'
 import Subtitle1 from './Subtitle1'
 import PropTypes from 'prop-types'
 
@@ -22,7 +22,7 @@ const OnBoardItem = ({ item }) => {
 	return (
 		<ViewContainer>
 			<OnboardImage source={item.image} />
-			<H1 style={{ marginTop: 40 }}>{item.title}</H1>
+			<H2 style={{ marginTop: 40 }}>{item.title}</H2>
 			<Subtitle1
 				style={{
 					paddingHorizontal: 30,
