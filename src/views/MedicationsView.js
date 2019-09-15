@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
-import { View, Text, TouchableOpacity, FlatList } from 'react-native'
+import React, { useContext, Fragment } from 'react'
+import { View, TouchableOpacity, FlatList } from 'react-native'
+import { NavigationEvents } from 'react-navigation'
 import styled from 'styled-components'
 import { AntDesign } from '@expo/vector-icons'
 import H1 from '../components/H1'
@@ -21,18 +22,24 @@ const AddIcon = styled(AntDesign)`
 
 const MedicationsView = () => {
 	const {
-		state: { medications }
+		state: { medications },
+		fetchMedications
 	} = useContext(MedicationContext)
 
 	return (
-		<StyledView>
-			<H1>Medications</H1>
-			<FlatList
-				keyExtractor={item => item._id.toString()}
-				data={medications}
-				renderItem={({ item }) => <MedicationListItem item={item} />}
-			/>
-		</StyledView>
+		<Fragment>
+			<NavigationEvents onWillFocus={fetchMedications} />
+			<StyledView>
+				<H1>Medications</H1>
+				<FlatList
+					keyExtractor={item => item._id.toString()}
+					data={medications}
+					renderItem={({ item }) => (
+						<MedicationListItem item={item} />
+					)}
+				/>
+			</StyledView>
+		</Fragment>
 	)
 }
 
