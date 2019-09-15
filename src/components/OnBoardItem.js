@@ -18,7 +18,7 @@ const OnboardImage = styled.Image`
 	resize-mode: contain;
 `
 
-const OnBoardItem = ({ item }) => {
+const OnboardItem = ({ item }) => {
 	return (
 		<ViewContainer>
 			<OnboardImage source={item.image} />
@@ -36,8 +36,8 @@ const OnBoardItem = ({ item }) => {
 	)
 }
 
-OnBoardItem.propTypes = {
+OnboardItem.propTypes = {
 	item: PropTypes.object
 }
 
-export default OnBoardItem
+export default OnboardItem

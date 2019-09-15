@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 import { View, Text, TouchableOpacity, FlatList } from 'react-native'
 import styled from 'styled-components'
 import { AntDesign } from '@expo/vector-icons'
-import H1 from '../../components/H1'
-import MedicationListItem from '../../components/MedicationListItem'
+import H1 from '../components/H1'
+import MedicationListItem from '../components/MedicationListItem'
 
-import { Context as MedicationContext } from '../../context/MedicationContext'
+import { Context as MedicationContext } from '../context/MedicationContext'
 
 const StyledView = styled.View`
 	flex: 1;
