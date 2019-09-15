@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { ListItem } from 'react-native-elements'
 import styled from 'styled-components'
@@ -7,6 +7,7 @@ import H1 from '../../components/H1'
 import TouchableScale from 'react-native-touchable-scale'
 import colours from '../../constants/colours'
 import PillBottleEmptyIcon from '../../assets/icons/PillBottleEmptyIcon'
+import { Context as MedicationContext } from '../../context/MedicationContext'
 
 const StyledView = styled.View`
 	flex: 1;
@@ -21,27 +22,39 @@ const AddIcon = styled(AntDesign)`
 `
 
 const MedicationsView = () => {
+	const {
+		state: { medications }
+	} = useContext(MedicationContext)
 	return (
 		<StyledView>
 			<H1>Medications</H1>
-			<ListItem
-				Component={TouchableScale}
-				friction={90} //
-				tension={100}
-				activeScale={0.95} //
-				linearGradientProps={{
-					colors: ['#aff57a', '#54d169'],
-					start: [1, 0],
-					end: [0.2, 0]
-				}}
-				title='Azathioprine'
-				titleStyle={{ color: 'white', fontWeight: 'bold' }}
-				subtitleStyle={{ color: 'white' }}
-				subtitle='100 x 50mg'
-				chevron={{ color: 'white' }}
-				containerStyle={{ borderRadius: 15, height: 130 }}
-				leftIcon={PillBottleEmptyIcon}
-			/>
+			{medications.map(med => {
+				return (
+					<ListItem
+						key={med._id}
+						Component={TouchableScale}
+						friction={90}
+						tension={100}
+						activeScale={0.95}
+						linearGradientProps={{
+							colors: colours[med.colour],
+							start: [1, 0],
+							end: [0.2, 0]
+						}}
+						title={med.name}
+						titleStyle={{ color: 'white', fontWeight: 'bold' }}
+						subtitleStyle={{ color: 'white' }}
+						subtitle={`${med.count - med.used} x ${med.doseSize}`}
+						chevron={{ color: 'white' }}
+						containerStyle={{
+							borderRadius: 25,
+							height: 130,
+							marginBottom: 10
+						}}
+						leftIcon={PillBottleEmptyIcon}
+					/>
+				)
+			})}
 		</StyledView>
 	)
 }
