@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 import { Button, Input } from 'react-native-elements'
 import styled from 'styled-components'
@@ -22,10 +22,11 @@ const CounterInput = ({
 	label,
 	handleOnAdd,
 	handleOnMinus,
-	handleOnChange
+	handleOnChange,
+	style
 }) => {
 	return (
-		<Fragment>
+		<View style={{ ...style }}>
 			<H3>{label}</H3>
 			<Container>
 				<Button
@@ -64,7 +65,7 @@ const CounterInput = ({
 					onPress={handleOnAdd}
 				/>
 			</Container>
-		</Fragment>
+		</View>
 	)
 }
 

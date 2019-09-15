@@ -7,6 +7,7 @@ import Input from '../../components/Input'
 import ColourPicker from '../../components/ColourPicker'
 import ColouredPillBottleFullIcon from '../../components/ColouredPillBottleFullIcon'
 import CounterInput from '../../components/CounterInput'
+import Button from '../../components/Button'
 import colours from '../../constants/colours'
 
 const StyledView = styled.View`
@@ -29,14 +30,7 @@ const AddMedicationView = () => {
 		}
 	}
 	return (
-		<KeyboardAvoidingScrollView
-		// enableAutomaticScroll={true}
-		// enableResetScrollToCoords={true}
-		// keyboardOpeningTime={0}
-		// extraScrollHeight={50}
-		// viewIsInsideTabBar
-		// style={{ flex: 1 }}
-		>
+		<KeyboardAvoidingScrollView>
 			<StyledView>
 				<View>
 					<H1>Add Medication</H1>
@@ -70,7 +64,9 @@ const AddMedicationView = () => {
 					handleOnChange={setCount}
 					handleOnAdd={() => handleCount(parseInt(count) + 1)}
 					handleOnMinus={() => handleCount(parseInt(count) - 1)}
+					style={{ marginBottom: 10 }}
 				/>
+				<Button title='Save' />
 			</StyledView>
 		</KeyboardAvoidingScrollView>
 	)
