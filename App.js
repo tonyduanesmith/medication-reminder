@@ -35,7 +35,6 @@ const switchNavigator = createSwitchNavigator({
 const App = createAppContainer(switchNavigator)
 
 export default props => {
-	console.log(props)
 	return (
 		<AppProvider>
 			<AssetPreLoader>

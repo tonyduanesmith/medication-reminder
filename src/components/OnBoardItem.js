@@ -1,12 +1,13 @@
 import React from 'react'
 import { View, Image, Text } from 'react-native'
 import styled from 'styled-components'
+import H1 from './H1'
+import Subtitle1 from './Subtitle1'
 
 const ViewContainer = styled.View`
 	flex: 1;
 	align-items: center;
 	justify-content: space-around;
-	border: 1px solid red;
 	justify-content: center;
 `
 
@@ -16,19 +17,20 @@ const OnboardImage = styled.Image`
 	resize-mode: contain;
 `
 
-const HeaderText = styled.Text`
-	font-size: 22px;
-	font-weight: bold;
-	font-family: 'sf-pro-rounded-semibold';
-`
-
 const OnBoardItem = ({ item }) => {
-	console.log(item.title)
 	return (
 		<ViewContainer>
 			<OnboardImage source={item.image} />
-			<HeaderText>{item.title}</HeaderText>
-			<Text>{item.text}</Text>
+			<H1 style={{ marginTop: 40 }}>{item.title}</H1>
+			<Subtitle1
+				style={{
+					paddingHorizontal: 30,
+					textAlign: 'center',
+					marginTop: 10
+				}}
+			>
+				{item.text}
+			</Subtitle1>
 		</ViewContainer>
 	)
 }

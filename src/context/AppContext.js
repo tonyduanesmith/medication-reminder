@@ -27,11 +27,11 @@ const appReducer = (state, { type, payload }) => {
 
 const checkHasOnboarded = dispatch => async () => {
 	const hasOnboarded = await AsyncStorage.getItem('hasOnboarded')
-	// if (hasOnboarded) {
-	// 	navigate('mainFlow')
-	// } else {
-	// 	navigate('Onboarding')
-	// }
+	if (hasOnboarded) {
+		navigate('mainFlow')
+	} else {
+		navigate('Onboarding')
+	}
 	dispatch({
 		type: 'SET_SHOW_SPLASH',
 		action: false

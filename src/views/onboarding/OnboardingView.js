@@ -36,7 +36,6 @@ const slides = [
 
 const OnboardingView = () => {
 	const renderItem = ({ item }) => {
-		console.log('loaded')
 		return <OnBoardItem item={item} />
 	}
 	return (
