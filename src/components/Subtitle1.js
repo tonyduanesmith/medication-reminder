@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 const StyledSubtitle1 = styled.Text`
 	font-size: 17px;
 	font-weight: bold;
-	font-family: 'sf-pro-rounded-semibold';
+	font-family: 'sf-pro-rounded-regular';
 	color: #8c8c8c;
 `
 

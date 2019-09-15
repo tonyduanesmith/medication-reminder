@@ -52,6 +52,7 @@ const setHasOnboarded = dispatch => async () => {
 
 const loadFonts = dispatch => async () => {
 	await Font.loadAsync({
+		'sf-pro-rounded-regular': require('../assets/fonts/SF-Pro-Rounded-Regular.otf'),
 		'sf-pro-rounded-semibold': require('../assets/fonts/SF-Pro-Rounded-Semibold.otf')
 	})
 
