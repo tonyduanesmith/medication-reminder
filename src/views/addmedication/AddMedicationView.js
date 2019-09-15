@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import H1 from '../../components/H1'
 import Input from '../../components/Input'
 import ColourPicker from '../../components/ColourPicker'
+import ColouredPillBottleFullIcon from '../../components/ColouredPillBottleFullIcon'
 import colours from '../../constants/colours'
 
 const StyledView = styled.View`
@@ -35,6 +36,12 @@ const AddMedicationView = () => {
 				colours={colours}
 				selected={colour}
 				handleOnPress={setColour}
+			/>
+			<ColouredPillBottleFullIcon
+				height={200}
+				primary={colours[colour][0]}
+				secondary={colours[colour][1]}
+				style={{ marginTop: 50 }}
 			/>
 		</StyledView>
 	)
