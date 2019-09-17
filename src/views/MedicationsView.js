@@ -20,7 +20,7 @@ const AddIcon = styled(AntDesign)`
 	color: #029cf5;
 `
 
-const MedicationsView = () => {
+const MedicationsView = ({ navigation }) => {
 	const {
 		state: { medications },
 		fetchMedications
@@ -35,7 +35,10 @@ const MedicationsView = () => {
 					keyExtractor={item => item._id.toString()}
 					data={medications}
 					renderItem={({ item }) => (
-						<MedicationListItem item={item} />
+						<MedicationListItem
+							item={item}
+							navigation={navigation}
+						/>
 					)}
 				/>
 			</StyledView>

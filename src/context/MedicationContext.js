@@ -82,8 +82,38 @@ const addMedication = dispatch => async (
 	}
 }
 
+const updateMedication = dispatch => async (
+	name,
+	doseSize,
+	colour,
+	count,
+	medications,
+	_id
+) => {
+	const updated = medications.map(medication => {
+		if (medication._id === _id) {
+			return {
+				name,
+				doseSize,
+				colour,
+				count,
+				used: 0,
+				_id
+			}
+		} else {
+			return medication
+		}
+	})
+	try {
+		await AsyncStorage.setItem('medications', JSON.stringify(updated))
+		navigate('Medications')
+	} catch (err) {
+		console.log('Something went wrong when updating medications', err)
+	}
+}
+
 export const { Context, Provider } = createDataContext(
 	reducer,
-	{ fetchMedications, addMedication },
+	{ fetchMedications, addMedication, updateMedication },
 	initialState
 )

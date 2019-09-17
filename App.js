@@ -3,6 +3,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import AddMedicationView from './src/views/AddMedicationView'
+import EditMedicationView from './src/views/EditMedicationView'
 import AddReminderView from './src/views/AddReminderView'
 import MedicationsView from './src/views/MedicationsView'
 import OnboardingView from './src/views/OnboardingView'
@@ -18,7 +19,8 @@ import PillNavIcon from './src/components/PillNavIcon'
 
 const medicationsFlow = createStackNavigator({
 	Medications: MedicationsView,
-	AddMedication: AddMedicationView
+	AddMedication: AddMedicationView,
+	EditMedication: EditMedicationView
 })
 
 medicationsFlow.navigationOptions = {

@@ -4,7 +4,7 @@ import TouchableScale from 'react-native-touchable-scale'
 import PillBottleEmptyIcon from './PillBottleEmptyIcon'
 import colours from '../constants/colours'
 
-const MedicationListItem = ({ item }) => {
+const MedicationListItem = ({ item, navigation }) => {
 	return (
 		<ListItem
 			key={item._id}
@@ -28,6 +28,7 @@ const MedicationListItem = ({ item }) => {
 				marginBottom: 10
 			}}
 			leftIcon={PillBottleEmptyIcon}
+			onPress={() => navigation.navigate('EditMedication', {_id:item._id})}
 		/>
 	)
 }
