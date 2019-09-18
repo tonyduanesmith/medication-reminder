@@ -112,8 +112,21 @@ const updateMedication = dispatch => async (
 	}
 }
 
+const deleteMedication = dispatch => async (_id, medications) => {
+	const updated = medications.filter(medication => medication._id !== _id)
+	try {
+		await AsyncStorage.setItem('medications', JSON.stringify(updated))
+		dispatch({
+			type: 'FETCHED_MEDICATIONS',
+			payload: updated
+		})
+	} catch (err) {
+		console.log('Something went wrong when deleting medication', err)
+	}
+}
+
 export const { Context, Provider } = createDataContext(
 	reducer,
-	{ fetchMedications, addMedication, updateMedication },
+	{ fetchMedications, addMedication, updateMedication, deleteMedication },
 	initialState
 )
