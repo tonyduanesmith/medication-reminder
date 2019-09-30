@@ -7,7 +7,21 @@ import colours from '../constants/colours'
 
 const MedicationListItem = ({ item, navigation }) => {
 	return (
-		<View style={{ marginLeft: 10, marginRight: 10, marginBottom: 10 }}>
+		<View
+			style={{
+				marginLeft: 10,
+				marginRight: 10,
+				marginBottom: 10,
+				shadowColor: '#000',
+				shadowOffset: {
+					width: 0,
+					height: 8
+				},
+				shadowOpacity: 0.24,
+				shadowRadius: 10.32,
+				elevation: 16
+			}}
+		>
 			<ListItem
 				key={item._id}
 				Component={TouchableScale}
