@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 	},
 	bottomTabBar: {
 		backgroundColor: 'transparent',
-		borderBottomWidth: 0
+		borderTopWidth: 0
 	}
 })
 

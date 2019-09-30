@@ -62,9 +62,6 @@ const switchNavigator = createSwitchNavigator({
 			tabBarComponent: props => BlurredTabbar(props),
 			tabBarOptions: {
 				activeTintColor: '#029cf5',
-				style: {
-					borderWidth: 0
-				},
 				labelStyle: {
 					fontSize: 11,
 					fontFamily: 'sf-pro-rounded-semibold'
