@@ -21,7 +21,7 @@ const MedicationsView = ({ navigation }) => {
 		<Fragment>
 			<NavigationEvents onWillFocus={fetchMedications} />
 			<SwipeListView
-				contentInset={{ top: 90 }}
+				contentInset={{ top: 90, bottom: 80 }}
 				contentOffset={{ y: -90 }}
 				ListHeaderComponent={<H1>Medications</H1>}
 				ListHeaderComponentStyle={{ paddingLeft: 16, paddingRight: 16 }}
