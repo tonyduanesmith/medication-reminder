@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Context as MedicationContext } from '../context/MedicationContext'
 import MedicationDetails from '../components/MedicationDetails'
+import { BlurView } from 'expo-blur'
 
 const EditMedicationView = ({ navigation }) => {
 	const {
@@ -34,7 +35,11 @@ const EditMedicationView = ({ navigation }) => {
 EditMedicationView.navigationOptions = {
 	headerStyle: {
 		borderBottomWidth: 0
-	}
+	},
+	headerBackground: (
+		<BlurView style={{ flex: 1 }} tint='light' intensity={90} />
+	),
+	headerTransparent: true
 }
 
 export default EditMedicationView
