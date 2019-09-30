@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "expo": "^34.0.4",
+    "expo-blur": "~6.0.0",
     "expo-linear-gradient": "~6.0.0",
     "expo-svg-uri": "^1.0.1",
     "prop-types": "^15.7.2",

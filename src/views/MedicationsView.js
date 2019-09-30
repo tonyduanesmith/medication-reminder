@@ -1,19 +1,14 @@
 import React, { useContext, Fragment } from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
 import { NavigationEvents } from 'react-navigation'
-import styled from 'styled-components'
 import { AntDesign } from '@expo/vector-icons'
 import H1 from '../components/H1'
 import MedicationListItem from '../components/MedicationListItem'
 import { SwipeListView } from 'react-native-swipe-list-view'
 import SwipeButton from '../components/SwipeButton'
+import { BlurView } from 'expo-blur'
 
 import { Context as MedicationContext } from '../context/MedicationContext'
-
-const StyledView = styled.View`
-	padding-left: 16px;
-	padding-right: 16px;
-`
 
 const MedicationsView = ({ navigation }) => {
 	const {
@@ -25,10 +20,11 @@ const MedicationsView = ({ navigation }) => {
 	return (
 		<Fragment>
 			<NavigationEvents onWillFocus={fetchMedications} />
-			<StyledView>
-				<H1>Medications</H1>
-			</StyledView>
 			<SwipeListView
+				contentInset={{ top: 90 }}
+				contentOffset={{ y: -90 }}
+				ListHeaderComponent={<H1>Medications</H1>}
+				ListHeaderComponentStyle={{ paddingLeft: 16, paddingRight: 16 }}
 				keyExtractor={item => item._id.toString()}
 				data={medications}
 				renderItem={({ item }, rowMap) => (
@@ -55,13 +51,14 @@ MedicationsView.navigationOptions = ({ navigation }) => {
 				name='plus'
 				size={30}
 				color='#029cf5'
-				backgroundColor='#ffffff'
+				backgroundColor='transparent'
 				onPress={() => navigation.navigate('AddMedication')}
 			/>
 		),
-		headerStyle: {
-			borderBottomWidth: 0
-		}
+		headerBackground: (
+			<BlurView style={{ flex: 1 }} tint='light' intensity={90} />
+		),
+		headerTransparent: true
 	}
 }
 

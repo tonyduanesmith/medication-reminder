@@ -16,6 +16,7 @@ import { Provider as MedicationProvider } from './src/context/MedicationContext'
 import { setNavigator } from './src/utils/navigationRef'
 import { AntDesign } from '@expo/vector-icons'
 import PillNavIcon from './src/components/PillNavIcon'
+import BlurredTabbar from './src/components/BlurredTabbar'
 
 const medicationsFlow = createStackNavigator({
 	Medications: MedicationsView,
@@ -58,10 +59,11 @@ const switchNavigator = createSwitchNavigator({
 			Reminders: remindersFlow
 		},
 		{
+			tabBarComponent: props => BlurredTabbar(props),
 			tabBarOptions: {
 				activeTintColor: '#029cf5',
 				style: {
-					borderTopWidth: 0
+					borderWidth: 0
 				},
 				labelStyle: {
 					fontSize: 11,
