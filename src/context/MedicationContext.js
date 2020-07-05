@@ -53,6 +53,7 @@ const fetchMedications = dispatch => async () => {
 				type: 'FETCHED_MEDICATIONS',
 				payload: data
 			})
+			console.log(data)
 		}
 	} catch (err) {
 		console.log('Something went wrong when fetching medications', err)

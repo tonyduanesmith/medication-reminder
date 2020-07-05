@@ -13,6 +13,7 @@ import BootView from './src/views/BootView'
 import AssetPreLoader from './src/utils/AssetPreLoader'
 import { Provider as AppProvider } from './src/context/AppContext'
 import { Provider as MedicationProvider } from './src/context/MedicationContext'
+import { Provider as RemindersProvider } from './src/context/RemindersContext'
 import { setNavigator } from './src/utils/navigationRef'
 import { AntDesign } from '@expo/vector-icons'
 import PillNavIcon from './src/components/PillNavIcon'
@@ -77,13 +78,15 @@ export default props => {
 	return (
 		<AppProvider>
 			<MedicationProvider>
-				<AssetPreLoader>
-					<App
-						ref={navigator => {
-							setNavigator(navigator)
-						}}
-					/>
-				</AssetPreLoader>
+				<RemindersProvider>
+					<AssetPreLoader>
+						<App
+							ref={navigator => {
+								setNavigator(navigator)
+							}}
+						/>
+					</AssetPreLoader>
+				</RemindersProvider>
 			</MedicationProvider>
 		</AppProvider>
 	)

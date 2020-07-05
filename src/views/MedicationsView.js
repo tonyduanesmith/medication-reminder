@@ -1,5 +1,4 @@
 import React, { useContext, Fragment } from 'react'
-import { View, TouchableOpacity, Text } from 'react-native'
 import { NavigationEvents } from 'react-navigation'
 import { AntDesign } from '@expo/vector-icons'
 import H1 from '../components/H1'
@@ -7,7 +6,6 @@ import MedicationListItem from '../components/MedicationListItem'
 import { SwipeListView } from 'react-native-swipe-list-view'
 import SwipeButton from '../components/SwipeButton'
 import { BlurView } from 'expo-blur'
-
 import { Context as MedicationContext } from '../context/MedicationContext'
 
 const MedicationsView = ({ navigation }) => {
