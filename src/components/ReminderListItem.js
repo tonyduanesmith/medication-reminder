@@ -9,6 +9,7 @@ import NightIcon from './NightIcon'
 import colours from '../constants/colours'
 
 const ReminderListItem = ({ item, navigation, medication }) => {
+	console.log(medication)
 	const iconLookup = () => {
 		const time = moment(item.time, 'HH:mm')
 		if (time.get('hour') <= 4) {

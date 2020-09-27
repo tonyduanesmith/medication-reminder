@@ -19,6 +19,8 @@ const RemindersView = ({ navigation }) => {
 		state: { medications }
 	} = useContext(MedicationContext)
 
+	console.log(medications[0])
+
 	return (
 		<Fragment>
 			<NavigationEvents onWillFocus={fetchReminders} />
@@ -29,15 +31,16 @@ const RemindersView = ({ navigation }) => {
 				ListHeaderComponentStyle={{ paddingLeft: 16, paddingRight: 16 }}
 				keyExtractor={item => item._id.toString()}
 				data={reminders}
-				renderItem={({ item }, rowMap) => (
-					<ReminderListItem
+				renderItem={({ item }, rowMap) => {
+					console.log("test", item)
+					return <ReminderListItem
 						item={item}
 						medication={medications.find(
 							m => m._id === item.medication_id
 						)}
 						navigation={navigation}
 					/>
-				)}
+}}
 				renderHiddenItem={({ item }, rowMap) => (
 					<SwipeButton
 						iconName='delete'
