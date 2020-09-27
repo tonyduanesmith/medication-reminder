@@ -13,6 +13,7 @@
     "expo-linear-gradient": "~8.2.1",
     "expo-svg-uri": "^1.0.1",
     "moment": "^2.24.0",
+    "prettier": "^2.1.2",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-dom": "16.11.0",

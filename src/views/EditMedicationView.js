@@ -10,7 +10,7 @@ const EditMedicationView = ({ navigation }) => {
 	} = useContext(MedicationContext)
 	const _id = navigation.getParam('_id')
 	const medication = medications.find(m => m._id === _id)
-	console.log(typeof medication.count)
+
 	return (
 		<MedicationDetails
 			title='Edit Medication'

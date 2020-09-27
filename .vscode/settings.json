@@ -3,5 +3,8 @@
         "addreminder",
         "semibold",
         "uuidv"
-    ]
+    ],
+    "prettier.configPath": ".prettierrc",
+    "prettier.prettierPath": "./node_modules/prettier/",
+    "editor.formatOnSave": true
 }
