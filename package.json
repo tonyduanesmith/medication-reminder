@@ -12,7 +12,7 @@
     "expo-blur": "~8.1.2",
     "expo-linear-gradient": "~8.2.1",
     "expo-svg-uri": "^1.0.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "prettier": "^2.1.2",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
